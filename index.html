@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaaS LinkShortener - Access Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <div class="auth-card" id="login-card">
+            <h2>Welcome Back</h2>
+            <p class="subtitle">Enter your credentials to access your dashboard</p>
+            
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="login-email">Email Address</label>
+                    <input type="email" id="login-email" required placeholder="name@company.com">
+                </div>
+                <div class="input-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn-primary">Sign In</button>
+            </form>
+            <p class="auth-footer">Don't have an account? <a href="#" id="show-register">Create one</a></p>
+        </div>
+
+        <div class="auth-card hidden" id="register-card">
+            <h2>Create Account</h2>
+            <p class="subtitle">Get started with the most advanced URL analytics tool</p>
+            
+            <form id="register-form">
+                <div class="input-group">
+                    <label for="register-email">Email Address</label>
+                    <input type="email" id="register-email" required placeholder="name@company.com">
+                </div>
+                <div class="input-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn-primary">Register</button>
+            </form>
+            <p class="auth-footer">Already have an account? <a href="#" id="show-login">Sign In</a></p>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>

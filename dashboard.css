@@ -1,0 +1,199 @@
+/* --- DASHBOARD PREMIUM STYLING --- */
+.dashboard-page {
+    align-items: flex-start;
+    padding: 40px 20px;
+    display: block; /* Overrides the flex centering of auth page */
+}
+
+.dashboard-wrapper {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Header */
+.db-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo-zone h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.user-zone {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#user-display {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.btn-logout {
+    background: transparent;
+    color: #ef4444;
+    border: 1px solid #ef4444;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-logout:hover {
+    background: #ef4444;
+    color: white;
+}
+
+/* Shortener Input Box */
+.shortener-box {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 40px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.shortener-box h2 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.shorten-input-row {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.shorten-input-row input {
+    flex: 1;
+    padding: 16px 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-dark);
+    color: white;
+    font-size: 15px;
+}
+
+.shorten-input-row input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.btn-shorten {
+    background: var(--accent);
+    color: #0f172a;
+    border: none;
+    padding: 0 32px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-shorten:hover {
+    background: var(--accent-hover);
+}
+
+/* Links Table */
+.links-section h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: var(--text-main);
+}
+
+.table-container {
+    background: var(--card-bg);
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.links-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.links-table th, .links-table td {
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.links-table th {
+    background: rgba(0,0,0,0.2);
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.links-table td {
+    font-size: 14px;
+    color: var(--text-main);
+}
+
+.links-table tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.links-table tr:last-child td {
+    border-bottom: none;
+}
+
+.empty-row {
+    text-align: center;
+    color: var(--text-muted) !important;
+    padding: 40px !important;
+}
+
+/* Result Box for Copying */
+.result-card {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(52, 211, 153, 0.1);
+    border: 1px solid var(--success);
+    border-radius: 12px;
+}
+
+.result-card p {
+    color: var(--success);
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.copy-row {
+    display: flex;
+    gap: 10px;
+}
+
+.copy-row input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--success);
+    background: var(--bg-dark);
+    color: white;
+}
+
+.btn-copy {
+    background: var(--success);
+    color: #0f172a;
+    border: none;
+    padding: 0 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}

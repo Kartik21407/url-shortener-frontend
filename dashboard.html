@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaaS LinkShortener - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-page">
+    <div class="dashboard-wrapper">
+        <header class="db-header">
+            <div class="logo-zone">
+                <span class="logo-dot"></span>
+                <h1>SaaS Shortener</h1>
+            </div>
+            <div class="user-zone">
+                <span id="user-display">user@test.com</span>
+                <button id="logout-btn" class="btn-logout">Logout</button>
+            </div>
+        </header>
+
+        <main class="db-main">
+            <section class="shortener-box">
+                <h2>Create Short URL</h2>
+                <form id="shorten-form" class="shorten-input-row">
+                    <input type="url" id="long-url" required placeholder="Paste your long URL here (e.g., https://amazon.in/product...)">
+                    <button type="submit" class="btn-shorten">Shorten Link</button>
+                </form>
+                <div id="result-box" class="result-card hidden">
+                    <p>Your short link is ready! 🎉</p>
+                    <div class="copy-row">
+                        <input type="text" id="shortened-url-output" readonly>
+                        <button id="copy-btn" class="btn-copy">Copy</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="links-section">
+                <h3>Your Active Links</h3>
+                <div class="table-container">
+                    <table class="links-table">
+                        <thead>
+                            <tr>
+                                <th>Original URL</th>
+                                <th>Short Link</th>
+                                <th>Clicks</th>
+                                <th>Created At</th>
+                            </tr>
+                        </thead>
+                        <tbody id="links-table-body">
+                            <tr>
+                                <td colspan="4" class="empty-row">No links generated yet. Create your first link above!</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script>
+        // Check if token exists, otherwise boot to login
+        if (!localStorage.getItem('token')) {
+            window.location.href = 'index.html';
+        }
+        document.getElementById('user-display').innerText = localStorage.getItem('userEmail');
+        
+        // Logout handler
+        document.getElementById('logout-btn').addEventListener('click', () => {
+            localStorage.clear();
+            window.location.href = 'index.html';
+        });
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>
