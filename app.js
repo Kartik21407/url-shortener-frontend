@@ -1,4 +1,4 @@
-const BACKEND_URL = 'http://localhost:8080/api';
+const BACKEND_URL = 'https://url-shortener-backend-6p26.onrender.com/api';
 
 // ==========================================
 // 1. AUTH PAGE LOGIC (index.html)
@@ -62,6 +62,8 @@ if (document.getElementById('login-card')) {
 // ==========================================
 if (document.getElementById('shorten-form')) {
     const token = localStorage.getItem('token');
+    // Base URL for redirects (without /api)
+    const BASE_REDIRECT_URL = 'https://url-shortener-backend-6p26.onrender.com';
 
     // API 1: Fetch and show all links in table
     async function fetchMyLinks() {
@@ -79,11 +81,10 @@ if (document.getElementById('shorten-form')) {
                     return;
                 }
 
-                tbody.innerHTML = ''; // Purana data clean karo
+                tbody.innerHTML = ''; 
                 
-                // Table mein naya data daalo
                 links.forEach(link => {
-                    const shortUrl = `http://localhost:8080/${link.shortAlias}`;
+                    const shortUrl = `${BASE_REDIRECT_URL}/${link.shortAlias}`;
                     const date = new Date(link.createdAt).toLocaleDateString();
                     
                     const tr = document.createElement('tr');
@@ -121,23 +122,19 @@ if (document.getElementById('shorten-form')) {
             if (response.ok) {
                 const data = await response.json();
                 
-                // Success Box dikhao aur link paste karo
-                // Success Box dikhao aur link paste karo
                 document.getElementById('result-box').classList.remove('hidden');
                 
-                // FIXED BULLETPROOF BUG: Agar backend string bheje ya Object dono pakdega
                 let alias = "";
                 if (typeof data === 'string') {
                     alias = data;
                 } else {
-                    // UrlResponse mein jo bhi naam hoga, yeh usko dhoond lega
                     alias = data.shortAlias || data.shortUrl || data.url || data.alias;
                 }
                 
-                document.getElementById('shortened-url-output').value = `http://localhost:8080/${alias}`;
+                document.getElementById('shortened-url-output').value = `${BASE_REDIRECT_URL}/${alias}`;
                 document.getElementById('long-url').value = ''; 
                 
-                fetchMyLinks(); // Table ko turant refresh karo!
+                fetchMyLinks(); 
             } else {
                 alert('Failed to shorten URL');
             }
@@ -154,7 +151,7 @@ if (document.getElementById('shorten-form')) {
         
         const btn = document.getElementById('copy-btn');
         btn.innerText = 'Copied!';
-        btn.style.background = '#10b981'; // Green color on success
+        btn.style.background = '#10b981';
         setTimeout(() => {
             btn.innerText = 'Copy';
             btn.style.background = 'var(--success)';
@@ -176,6 +173,5 @@ if (document.getElementById('shorten-form')) {
         }
     }
 
-    // Load initial data jab page khule
     fetchMyLinks();
 }
