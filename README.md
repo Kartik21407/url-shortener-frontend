@@ -1,9 +1,3 @@
----
-
-### **2. Updated Frontend `README.md`**
-*(Isme maine technical highlights mein Postgres mention kar diya hai)*
-
-```markdown
 # 🌐 SaaS URL Shortener Frontend
 
 A clean, modern, and responsive dashboard designed for users to create, manage, and analyze their shortened URLs.
